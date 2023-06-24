@@ -22,6 +22,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = "e2-medium"
+  tags = ["web", "dev"]
 
   boot_disk {
     initialize_params {
