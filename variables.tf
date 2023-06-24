@@ -1,13 +1,13 @@
 variable "project" {
-    default = "koborinai-test"
+  default = "koborinai-test"
 }
 
 variable "credentials_file" {
-    default = "secret.json"
+  default = "secret.json"
 }
 
 variable "region" {
-    default = "asia-northeast1"
+  default = "asia-northeast1"
 }
 
 variable "zone" {
