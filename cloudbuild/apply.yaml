@@ -13,6 +13,6 @@ steps:
 
   - id: "terraform-apply"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}"]
+    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=${_CREDENTIALS_FILE}"]
 
 timeout: "3600s"
