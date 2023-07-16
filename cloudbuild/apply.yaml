@@ -18,5 +18,5 @@ steps:
 timeout: "3600s"
 
 secrets:
-  secretEnv:
+- secretEnv:
     GOOGLE_CREDENTIALS: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/latest
