@@ -20,5 +20,5 @@ timeout: "3600s"
 
 availableSecrets:
   secretManager:
-    - versionName: projects/$_PROJECT_NUMBER/secrets/$_SECRET_NAME/versions/1
+    - versionName: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/1
       env: 'CREDENTIALS'
