@@ -3,6 +3,7 @@ steps:
     name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
     args: ["-c", "echo $$CREDENTIALS > /credentials.json"]
+    secretEnv: ['CREDENTIALS']
 
   - id: "terraform-fmt-check"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
