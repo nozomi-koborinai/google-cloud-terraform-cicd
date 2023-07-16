@@ -11,8 +11,8 @@ provider "google" {
   credentials = file(var.credentials_file)
 
   project = var.project
-  region  = var.region
-  zone    = var.zone
+  region  = "asia-northeast1"
+  zone    = "asia-northeast1-a"
 }
 
 resource "google_compute_network" "vpc_network" {
