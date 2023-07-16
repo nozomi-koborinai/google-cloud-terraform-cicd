@@ -8,6 +8,8 @@ terraform {
 }
 
 provider "google" {
+  credentials = var.credentials
+
   project = var.project
   region  = "asia-northeast1"
   zone    = "asia-northeast1-a"
