@@ -1,3 +1,7 @@
 variable "project" {
-  default = "koborinai-test"
+  type = string
+}
+
+variable "credentials" {
+  type = string
 }

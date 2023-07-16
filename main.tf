@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  # credentials = file(var.credentials_file)
+  credentials = file(var.credentials)
 
   project = var.project
   region  = "asia-northeast1"
