@@ -14,7 +14,7 @@ steps:
 
   - id: "terraform-plan"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var-file=/workspace/credentials.json"]
+    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials=/workspace/credentials.json"]
 
 timeout: "3600s"
 
