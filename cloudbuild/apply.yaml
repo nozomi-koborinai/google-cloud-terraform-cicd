@@ -2,7 +2,8 @@ steps:
   - id: "set-up-gcloud"
     name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
-    args: ["-c", "echo $CREDENTIALS > /workspace/credentials.json"]
+    args: ["-c", "echo $$CREDENTIALS > /workspace/credentials.json"]
+    secretEnv: ['CREDENTIALS']
 
   - id: "terraform-fmt-check"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
@@ -22,6 +23,7 @@ steps:
 
 timeout: "3600s"
 
-secrets:
-- secretEnv:
-    GOOGLE_CREDENTIALS: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/latest
+availableSecrets:
+  secretManager:
+    - versionName: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/1
+      env: 'CREDENTIALS'
