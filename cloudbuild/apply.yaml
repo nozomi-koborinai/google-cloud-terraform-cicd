@@ -9,11 +9,11 @@ steps:
 
   - id: "terraform-plan"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=/workspace/credentials.json"]
+    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}"]
 
   - id: "terraform-apply"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=/workspace/credentials.json"]
+    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}"]
 
 timeout: "3600s"
 
