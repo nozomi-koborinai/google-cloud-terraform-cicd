@@ -9,10 +9,14 @@ steps:
 
   - id: "terraform-plan"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}"]
+    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=/workspace/credentials.json"]
 
   - id: "terraform-apply"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=${_CREDENTIALS_FILE}"]
+    args: ["apply", "-auto-approve", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials_file=/workspace/credentials.json"]
 
 timeout: "3600s"
+
+secrets:
+  secretEnv:
+    GOOGLE_CREDENTIALS: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/latest
