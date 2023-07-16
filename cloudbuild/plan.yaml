@@ -2,7 +2,7 @@ steps:
   - id: "set-up-gcloud"
     name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
-    args: ["-c", "echo $$_CREDENTIALS > /workspace/credentials.json"]
+    args: ["-c", "echo $CREDENTIALS > /credentials.json"]
 
   - id: "terraform-fmt-check"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
@@ -14,11 +14,11 @@ steps:
 
   - id: "terraform-plan"
     name: "hashicorp/terraform:$_TERRAFORM_CLIENT_VERSION"
-    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials=/workspace/credentials.json"]
+    args: ["plan", "-lock-timeout=120s", "-var=project=${_PROJECT}", "-var=credentials=/credentials.json"]
 
 timeout: "3600s"
 
 availableSecrets:
   secretManager:
     - versionName: projects/$_PROJECT/secrets/$_SECRET_NAME/versions/latest
-      env: '_CREDENTIALS'
+      env: 'CREDENTIALS'
